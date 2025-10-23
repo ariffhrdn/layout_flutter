@@ -1,10 +1,24 @@
 # layout_flutter
 Praktikum 1
+Membangun layout di flutter
 ![alt text](image.png)
 
 Praktikum 2
+Implementasi button row
 ![alt text](image-1.png)
 A new Flutter project.
+
+Praktikum 3
+Implementasi text section
+![alt text](image-2.png)
+
+Praktikum 4
+Menyiapkan image
+![alt text](image-3.png)
+Tambahkan image ke body dan mengubah column menjadi listview
+![alt text](image-4.png)
+
+
 
 ## Getting Started
 

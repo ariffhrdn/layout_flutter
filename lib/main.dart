@@ -44,11 +44,8 @@ class MyApp extends StatelessWidget {
     );
 
     // --- Bagian Button (dari Praktikum 2) ---
-
-    // Variabel color (Langkah 2)
     Color color = Theme.of(context).primaryColor;
 
-    // Widget buttonSection (Langkah 2)
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -58,30 +55,50 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    // --- Bagian Text (dari Praktikum 3) ---
+    // (Langkah 1)
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Gunung di Batu, Malang, menawarkan pemandangan alam yang menakjubkan '
+        'dan udara sejuk yang menyegarkan. Tempat ini adalah destinasi '
+        'populer bagi wisatawan lokal maupun mancanegara yang mencari '
+        'ketenangan dari hiruk pikuk kota. '
+        '\n\n[Nama Anda: Muuhammad Arif Fahrudin]' 
+        '\n[NIM Anda: 2341760192]', 
+        softWrap: true, // Ini akan membungkus teks jika tidak muat
+      ),
+    );
+
+
     // --- Build Method Utama ---
     return MaterialApp(
-      title: 'Flutter layout: [Nama dan NIM Anda]', // <-- Jangan lupa ganti
+      title: 'Flutter layout: Muhammad Arif Fahrudin - 2341760192', // <-- Jangan lupa ganti
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        
-        // --- Solusi Langkah 3 ---
-        // Mengganti body dengan Column yang berisi 
-        // titleSection dan buttonSection
-        body: Column(
+
+        // --- Solusi Langkah 2 ---
+        // Menambahkan textSection ke dalam Column
+        body: ListView(
           children: [
+            Image.asset(
+              'images/danau.png',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
             titleSection,
-            buttonSection, // Ini adalah widget baru yang ditambahkan
+            buttonSection,
+            textSection, // Ini adalah widget baru yang ditambahkan
           ],
         ),
       ),
     );
   }
 
-  // --- Method _buildButtonColumn (dari Langkah 1) ---
-  // Method ini ditempatkan di dalam class MyApp, 
-  // tetapi di luar method build().
+  // --- Method _buildButtonColumn (dari Praktikum 2) ---
   Column _buildButtonColumn(Color color, IconData icon, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,
