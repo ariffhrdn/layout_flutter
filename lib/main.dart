@@ -7,20 +7,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Variabel titleSection didefinisikan di dalam method build()
-    // sesuai instruksi Langkah 4.
+    // --- Bagian Title (dari Praktikum 1) ---
     Widget titleSection = Container(
-      padding: const EdgeInsets.all(32), // Solusi Soal 3: Padding 32 di sekeliling Container
+      padding: const EdgeInsets.all(32),
       child: Row(
         children: [
           Expanded(
-            /* soal 1 */
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Solusi Soal 1: Posisi di awal baris
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /* soal 2 */
                 Container(
-                  padding: const EdgeInsets.only(bottom: 8), // Solusi Soal 2: Padding bawah 8
+                  padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
                     'Wisata Gunung di Batu',
                     style: TextStyle(
@@ -31,31 +28,78 @@ class MyApp extends StatelessWidget {
                 Text(
                   'Batu, Malang, Indonesia',
                   style: TextStyle(
-                    color: Colors.grey[500], // Solusi Soal 2: Warna abu-abu
+                    color: Colors.grey[500],
                   ),
                 ),
               ],
             ),
           ),
-          /* soal 3 */
           Icon(
-            Icons.star, // Solusi Soal 3: Ikon bintang
-            color: Colors.red[500], // Solusi Soal 3: Warna merah
+            Icons.star,
+            color: Colors.red[500],
           ),
-          const Text('41'), // Solusi Soal 3: Teks "41"
+          const Text('41'),
         ],
       ),
     );
 
+    // --- Bagian Button (dari Praktikum 2) ---
+
+    // Variabel color (Langkah 2)
+    Color color = Theme.of(context).primaryColor;
+
+    // Widget buttonSection (Langkah 2)
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButtonColumn(color, Icons.call, 'CALL'),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(color, Icons.share, 'SHARE'),
+      ],
+    );
+
+    // --- Build Method Utama ---
     return MaterialApp(
-      title: 'Flutter layout: [Nama dan NIM Anda]', // <-- Ganti di sini
+      title: 'Flutter layout: [Nama dan NIM Anda]', // <-- Jangan lupa ganti
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        // Solusi Soal 3: Mengganti body dari 'Hello World' menjadi 'titleSection'
-        body: titleSection,
+        
+        // --- Solusi Langkah 3 ---
+        // Mengganti body dengan Column yang berisi 
+        // titleSection dan buttonSection
+        body: Column(
+          children: [
+            titleSection,
+            buttonSection, // Ini adalah widget baru yang ditambahkan
+          ],
+        ),
       ),
+    );
+  }
+
+  // --- Method _buildButtonColumn (dari Langkah 1) ---
+  // Method ini ditempatkan di dalam class MyApp, 
+  // tetapi di luar method build().
+  Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

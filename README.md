@@ -2,6 +2,8 @@
 Praktikum 1
 ![alt text](image.png)
 
+Praktikum 2
+![alt text](image-1.png)
 A new Flutter project.
 
 ## Getting Started
